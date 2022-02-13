@@ -110,7 +110,7 @@ const Update = () => {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter new password"
                         onChange={(e) => {
@@ -128,7 +128,7 @@ const Update = () => {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Confirm new password"
                         required
@@ -156,8 +156,7 @@ const Update = () => {
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/account"}>
                         <a>view account</a>
-                      </Link>{" "}
-                      /{" "}
+                      </Link>
                       <Link href={"/"}>
                         <a>exit account</a>
                       </Link>

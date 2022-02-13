@@ -47,12 +47,9 @@ function Login() {
         { email, password },
         config
       );
-      console.log("222222222")
-      console.log(data)
       toast.success(data.message);
       cookie.set("token", data?.token);
       cookie.set("user", JSON.stringify(data?.user));
-      console.log("3333333333333")
       router.push("/");
     } catch (error) {
       setIsInvalidCred(!isInvalidCred)
@@ -98,7 +95,7 @@ function Login() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="email"
                         placeholder="Enter Your Email"
                         onChange={(e) => {
@@ -116,7 +113,7 @@ function Login() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter Your Password"
                         onChange={(e) => {
@@ -148,8 +145,7 @@ function Login() {
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/user/request"}>
                         <a>Don't have an account?</a>
-                      </Link>{" "}
-                      /{" "}
+                      </Link>
                       <Link href={"/user/reset"}>
                         <a>Reset user</a>
                       </Link>

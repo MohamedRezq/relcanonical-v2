@@ -109,7 +109,7 @@ function Register() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="text"
                         placeholder="Enter Your First Name"
                         name="firstName"
@@ -125,7 +125,7 @@ function Register() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="text"
                         placeholder="Enter Your Last Name"
                         name="lastName"
@@ -141,7 +141,7 @@ function Register() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="email"
                         placeholder="Enter Your Email"
                         required
@@ -156,7 +156,7 @@ function Register() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter Your Password"
                         required
@@ -171,7 +171,7 @@ function Register() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter Your Password"
                         required
@@ -197,8 +197,7 @@ function Register() {
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/user/access"}>
                         <a>Already have an account?</a>
-                      </Link>{" "}
-                      /{" "}
+                      </Link>
                       <Link href={"/user/reset"}>
                         <a>Reset user</a>
                       </Link>
