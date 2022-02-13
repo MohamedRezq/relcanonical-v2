@@ -7,11 +7,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Banner = () => {
   const { data: session } = useSession();
-  if(cookie) {
-    const user = JSON.parse(cookie.get("user"));
-  }else {
-    const user = null;
-  }
   console.log(cookie)
   return (
     <div className="d-flex flex-column-fluid bg-light-warning pt-15 pb-40">
@@ -31,11 +26,7 @@ const Banner = () => {
             <Header />
           </div>
         </div>
-        {cookie && (
-          <div className="my-6 font-weight-bold font-size-h4 text-dark-50 text-center">
-            Hello, {user.name}
-          </div>
-        )}
+        
         <blockquote className="blockquote text-center mb-10">
           <h2 className="mb-0 display-1 text-dark font-weight-boldest">
             Get your pages <u>crawled</u>, <br />
