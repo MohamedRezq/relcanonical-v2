@@ -195,7 +195,7 @@ function Register() {
                   <div className="">
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/user/access"}>
-                        <a>Already have an account?</a>
+                        <a className="pr-2">Already have an account?</a>
                       </Link>
                       <Link href={"/user/reset"}>
                         <a>Reset user</a>

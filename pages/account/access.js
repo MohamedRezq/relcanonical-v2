@@ -138,7 +138,7 @@ function Login() {
                   <div className="">
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/user/request"}>
-                        <a>Don&apos;t have an account?</a>
+                        <a className="pr-2">Don&apos;t have an account?</a>
                       </Link>
                       <Link href={"/user/reset"}>
                         <a>Reset user</a>
