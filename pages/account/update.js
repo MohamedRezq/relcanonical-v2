@@ -113,9 +113,6 @@ const Update = () => {
                         className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter new password"
-                        onChange={(e) => {
-                          setUserPass(e.target.value);
-                        }}
                         required
                         name="password"
                         label="Password"

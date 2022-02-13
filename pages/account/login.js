@@ -98,9 +98,6 @@ function Login() {
                         className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="email"
                         placeholder="Enter Your Email"
-                        onChange={(e) => {
-                          setUserEmail(e.target.value);
-                        }}
                         required
                         id="email"
                         label="Email Address"
@@ -113,12 +110,9 @@ function Login() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter Your Password"
-                        onChange={(e) => {
-                          setUserPass(e.target.value);
-                        }}
                         required
                         name="password"
                         label="Password"
