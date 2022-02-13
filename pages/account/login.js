@@ -165,7 +165,7 @@ function Login() {
     </div>
   );
 }
-
+/*
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
@@ -175,5 +175,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
+*/
 export default Login;
