@@ -10,7 +10,7 @@ const Banner = () => {
   if(cookie) {
     const user = JSON.parse(cookie.get("user"));
   }else {
-    user = null;
+    const user = null;
   }
   console.log(cookie)
   return (
