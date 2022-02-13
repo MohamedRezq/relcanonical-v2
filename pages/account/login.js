@@ -95,7 +95,7 @@ function Login() {
                   <div className="row mb-4">
                     <div className="col-md-12">
                       <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
+                        className="form-control text-center h-auto p-6 rounded-lg font-size-h6"
                         type="email"
                         placeholder="Enter Your Email"
                         required
