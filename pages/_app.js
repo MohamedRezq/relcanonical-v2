@@ -11,6 +11,7 @@ import { wrapper } from "../redux/store";
 import Script from "next/script";
 
 function MyApp({ Component, pagePropz: { session, ...pageProps } }) {
+  session = null;
   return (
     <>
       <Head>

@@ -18,8 +18,7 @@ import Company from "../sections/Company";
 import Testimonials from "../sections/Testimonials";
 
 export default function Index() {
-  // console.log(session)
-  //if (session) {
+
   return (
     <>
       <div className="d-flex flex-column flex-root">
