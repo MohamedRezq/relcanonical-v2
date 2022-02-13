@@ -173,7 +173,7 @@ function Register() {
                       <input
                         className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="password"
-                        placeholder="Enter Your Password"
+                        placeholder="Confirm Your Password"
                         required
                         fullWidth
                         name="confirm password"
