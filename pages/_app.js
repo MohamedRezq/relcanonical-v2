@@ -38,10 +38,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       </Head>
       <SessionProvider session={session}>
         <ToastContainer />
-        <Script src="/assets/js/Plugins.js"></Script>
-        <Script src="/assets/js/Prismjs.js"></Script>
-        <Script src="/assets/js/Scripts.js"></Script>
-        <Script src="/assets/js/Theme.js"></Script>
         <Component {...pageProps} />
       </SessionProvider>
     </>
