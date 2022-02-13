@@ -7,7 +7,11 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Banner = () => {
   const { data: session } = useSession();
-  const user = JSON.parse(cookie.get("user"));
+  if(cookie) {
+    const user = JSON.parse(cookie.get("user"));
+  }else {
+    user = null;
+  }
   console.log(cookie)
   return (
     <div className="d-flex flex-column-fluid bg-light-warning pt-15 pb-40">
