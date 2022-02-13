@@ -178,7 +178,6 @@ function Register() {
                         fullWidth
                         name="confirm password"
                         label="Confirm Password"
-                        type="password"
                         id="confirm password"
                         value={conPassword}
                         onChange={(e) => setConPassword(e.target.value)}
