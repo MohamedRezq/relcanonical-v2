@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { wrapper } from "../redux/store";
 import Script from "next/script";
 
-function MyApp({ Component, pagePropz: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   session = null;
   return (
     <>
@@ -50,7 +50,7 @@ function MyApp({ Component, pagePropz: { session, ...pageProps } }) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pagePropz: PropTypes.object.isRequired,
+  pageProps: PropTypes.object.isRequired,
 };
 
 export default wrapper.withRedux(MyApp);
