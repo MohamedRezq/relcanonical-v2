@@ -107,21 +107,7 @@ const Update = () => {
                       it only takes a few seconds
                     </p>
                   </div>
-                  <div className="row mb-4">
-                    <div className="col-md-12">
-                      <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
-                        type="password"
-                        placeholder="Enter new password"
-                        required
-                        name="password"
-                        label="Password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                  </div>
+                  
                   
                   <div className="pb-8">
                     <Link href="">
