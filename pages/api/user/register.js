@@ -17,11 +17,11 @@ export default async (req, res) => {
         return res.status(422).json({ error: "User already exists" })
       }
 
-      const HashedPassword = await bcrypt.hash(password, 12)
+      //const HashedPassword = await bcrypt.hash(password, 12)
       const newUser = await new User({
         email: email,
-        password: HashedPassword,
-        name: `${firstName} ${lastName}`,
+        //password: HashedPassword,
+        name: `${firstName}`, //${lastName}
       }).save()
       res.status(200).json({ message: "Sign Up Sucess" })
     }
