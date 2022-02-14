@@ -65,7 +65,7 @@ function Register() {
         config
       );
       setIsRegistered(true);
-      router.push("/account/request/confirm")
+      router.push(`/account/request/confirm/${firstName}`)
     } catch (error) {
       console.log(error.response);
     }

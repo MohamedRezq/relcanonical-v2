@@ -2,10 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import Brand from '../../../components/main/Brand'
+import Brand from '../../../../components/main/Brand'
 
-const Confirm = () => {
-
+const Confirm = (req, res) => {
+    const { name } = req.query
     return (
 
         <div className=''>
@@ -29,7 +29,7 @@ const Confirm = () => {
                                     </div>
                                     <div className="pb-4">
                                         <h3 className="font-weight-boldest text-dark font-size-h4 display-2 mb-10">We manually review every<br /> single account request.</h3>
-                                        <p className="text-muted font-weight-bold font-size-h4 px-20">Dear, accountName! If after 24hrs you did not receive any email from us, kindly contact our sales team;<br /> sales@relcanonical.com and we would be happy to inform you whether your business model is a fit.
+                                        <p className="text-muted font-weight-bold font-size-h4 px-20">Dear, {name}! If after 24hrs you did not receive any email from us, kindly contact our sales team;<br /> sales@relcanonical.com and we would be happy to inform you whether your business model is a fit.
                                         </p>
                                     </div>
                                     <div className="">
