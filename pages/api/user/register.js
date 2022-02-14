@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs"
 connectDB()
 
 export default async (req, res) => {
+  console.log(req)
   try {
     if (req.method === "POST") {
       const { email, firstName } = req.body
