@@ -3,17 +3,17 @@ import absoluteUrl from "next-absolute-url"
 
 export const sendEmail = (options) => {
   let smtpConfig = {
-    host: 'smtp.mailersend.net',
-    port: 587,
+    host: 'smtp.sendgrid.net',
+    port: 465,
     secure: true, // use SSL
     auth: {
-        user: 'MS_9glDOR@relcanonical.com',
-        pass: 'TuxkqPWjjBdLB0ie'
+        user: 'apikey',
+        pass: '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'
     }
   }
   var transporter = nodemailer.createTransport(smtpConfig);
   const mailOptions = {
-    from: "MS_9glDOR@relcanonical.com",
+    from: "morezqdev@gmail.com",
     to: options.to,
     subject: options.subject,
     html: options.text,
