@@ -5,8 +5,6 @@ import Image from 'next/image'
 import axios from "axios";
 import Brand from "../../../components/main/Brand"
 
-const theme = createTheme();
-
 export default function SignIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
