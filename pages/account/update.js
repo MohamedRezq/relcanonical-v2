@@ -1,19 +1,23 @@
-import * as React from "react";
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import axios from "axios";
-import Brand from "../../../components/main/Brand"
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import Brand from "../../components/main/Brand";
+import { useRouter } from "next/router";
 
-const theme = createTheme();
+const Update = () => {
+  const router = useRouter();
 
-export default function SignIn() {
+  const { token } = router.query;
+
+  console.log(token);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const result = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-
-    const email = result.get("email");
+    const conPassword = result.get("conPassword");
+    const password = result.get("password");
 
     const config = {
       headers: {
@@ -21,15 +25,17 @@ export default function SignIn() {
       },
     };
 
-    const { data } = await axios.post(`/api/user/forget`, { email }, config);
-
-    console.log(data);
+    const { data } = await axios.put(
+      `/api/user/reset/${token}`,
+      { conPassword, password },
+      config
+    );
   };
 
   return (
     <div>
       <Head>
-        <title>Reset Account :: Relcanonical</title>
+        <title>Update Account :: Relcanonical</title>
       </Head>
 
       <div className="d-flex flex-column flex-root">
@@ -55,7 +61,7 @@ export default function SignIn() {
                   </div>
                   <div className="pb-4">
                     <h3 className="font-weight-boldest text-dark font-size-h4 display-4">
-                      Reset Account
+                      Update Account
                     </h3>
                     <p className="text-muted font-weight-bold font-size-h4">
                       it only takes a few seconds
@@ -65,8 +71,14 @@ export default function SignIn() {
                     <div className="col-md-12">
                       <input
                         className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
-                        type="email"
-                        placeholder="Enter Your Email"
+                        type="password"
+                        placeholder="Enter New Password"
+                        required
+                        name="password"
+                        label="Password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
                   </div>
@@ -74,9 +86,14 @@ export default function SignIn() {
                     <div className="col-md-12">
                       <input
                         className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
-                        type="text"
-                        disabled
-                        placeholder="Hey, accountName"
+                        type="password"
+                        placeholder="Confirm New Password"
+                        required
+                        name="conPassword"
+                        label="Password"
+                        id="conPassword"
+                        value={conPassword}
+                        onChange={(e) => setConPassword(e.target.value)}
                       />
                     </div>
                   </div>
@@ -86,18 +103,18 @@ export default function SignIn() {
                         className="btn btn-primary font-weight-boldest font-size-h6 px-8 py-5 btn-block"
                         type="submit"
                       >
-                        RESET
+                        SAVE
                       </a>
                     </Link>
                   </div>
                   <div className="">
                     <span className="text-muted font-weight-bold font-size-h6">
-                      <Link href={"/account/access"}>
-                        <a>access account</a>
+                      <Link href={"/account"}>
+                        <a>view account</a>
                       </Link>{" "}
                       /{" "}
-                      <Link href={"/account/request"}>
-                        <a>request account</a>
+                      <Link href={"/"}>
+                        <a>exit account</a>
                       </Link>
                     </span>
                   </div>
@@ -110,4 +127,6 @@ export default function SignIn() {
       </div>
     </div>
   );
-}
+};
+
+export default Update;

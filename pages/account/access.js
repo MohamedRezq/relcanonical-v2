@@ -28,7 +28,7 @@ function Login() {
     }
 
     if (cookies?.user) {
-      router.push("/");
+      router.push("/account");
     }
   }, [router]);
 
@@ -50,7 +50,7 @@ function Login() {
       toast.success(data.message);
       cookie.set("token", data?.token);
       cookie.set("user", JSON.stringify(data?.user));
-      router.push("/");
+      router.push("/account");
     } catch (error) {
       setIsInvalidCred(!isInvalidCred)
       //toast.error(error.response.data.error);

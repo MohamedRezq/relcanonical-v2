@@ -1,4 +1,3 @@
-import * as React from "react";
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -6,8 +5,6 @@ import Image from "next/image";
 import Brand from "../../../../components/main/Brand";
 import { useRouter } from "next/router";
 import axios from "axios";
-
-const theme = createTheme();
 
 export default function SignIn() {
   const router = useRouter();
@@ -50,7 +47,7 @@ export default function SignIn() {
           <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-20 mx-auto">
             <div className="d-flex flex-column-fluid flex-center text-center">
               <div className="login-form login-signup">
-                <form className="">
+                <form className="" onSubmit={handleSubmit}>
                   <div className="text-center pb-8">
                     <Link href={"/"}>
                       <a>
