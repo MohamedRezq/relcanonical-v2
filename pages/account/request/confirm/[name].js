@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Brand from '../../../../components/main/Brand'
 
 const Confirm = (req, res) => {
-    const { name } = req.query
+    const { name } = req?.query
     return (
 
         <div className=''>
