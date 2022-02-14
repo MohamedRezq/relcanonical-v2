@@ -22,6 +22,10 @@ export default async (req, res) => {
         email: email,
         //password: HashedPassword,
         name: `${firstName}`, //${lastName}
+        avatar: `${firstName.charAt(0)}`,
+        type: "inactive",
+        password: "",
+        resetToken: "",
       }).save()
       res.status(200).json({ message: "Sign Up Sucess" })
     }
