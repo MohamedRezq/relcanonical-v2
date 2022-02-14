@@ -29,6 +29,7 @@ const Onboard = () => {
       { name, conPassword, password },
       config
     )
+    router.push("/account")
   }
 
   return (
