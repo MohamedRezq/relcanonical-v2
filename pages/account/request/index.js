@@ -1,75 +1,97 @@
-import * as React from "react"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import { toast } from "react-toastify"
-import { useSession, signIn, signOut, getSession } from "next-auth/react"
-import { parseCookies } from "nookies"
-import { useRouter } from "next/router"
+import * as React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import { parseCookies } from "nookies";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Brand from "../../components/main/Brand";
-
+import Brand from "../../../components/main/Brand";
+import emailjs from "@emailjs/browser";
+import { init } from "@emailjs/browser";
+init("user_tGYmCdobbGp4a6cJxsHfG");
 
 function Register() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [conPassword, setConPassword] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  //const [password, setPassword] = useState("")
+  //const [conPassword, setConPassword] = useState("")
+  const [firstName, setFirstName] = useState("");
+  //const [lastName, setLastName] = useState("")
+  //const router = useRouter()
+  const [isRegistered, setIsRegistered] = useState(false);
 
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
-  const cookies = parseCookies
+  const cookies = parseCookies;
 
   useEffect(() => {
     if (session) {
-      toast.success("Login Success")
-      router.push("/")
+      router.push("/");
     }
 
     if (cookies?.user) {
-      router.push("/")
+      router.push("/");
     }
-  }, [router])
+    if (isRegistered) {
+      router.push("/account/request/confirm");
+    }
+  }, [router, isRegistered]);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_z8ce4ip",
+        "template_opjizsj",
+        e.target,
+        "user_tGYmCdobbGp4a6cJxsHfG"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   const SubmitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      if (password !== conPassword) {
+      /*if (password !== conPassword) {
         toast.error("passwords do not match!")
         // console.log("passwords do not match")
         return
-      }
+      }*/
 
       const user = cookies?.user
         ? JSON.parse(cookies.user)
         : session?.user
         ? session?.user
-        : ""
+        : "";
 
-      console.log(email, password, firstName, lastName)
+      //console.log(email, password, firstName, lastName)
 
       const config = {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      };
 
       const { data } = await axios.post(
         `/api/user/register`,
-        { email, password, firstName, lastName },
+        { email, firstName },
         config
-      )
-
-      toast.success(data?.message)
+      );
+      setIsRegistered(true);
     } catch (error) {
-      console.log(error.response)
-      toast.error(error.response.data.error)
+      console.log(error.response);
     }
-  }
+  };
 
   return (
     <div>
@@ -111,7 +133,7 @@ function Register() {
                       <input
                         className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="text"
-                        placeholder="Enter Your First Name"
+                        placeholder="First Name"
                         name="firstName"
                         required
                         id="firstName"
@@ -126,61 +148,14 @@ function Register() {
                     <div className="col-md-12">
                       <input
                         className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
-                        type="text"
-                        placeholder="Enter Your Last Name"
-                        name="lastName"
-                        required
-                        id="lastName"
-                        label="Last Name"
-                        autoFocus
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="row mb-4">
-                    <div className="col-md-12">
-                      <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
                         type="email"
-                        placeholder="Enter Your Email"
+                        placeholder="Business Email"
                         required
                         id="email"
                         label="Email Address"
                         name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="row mb-4">
-                    <div className="col-md-12">
-                      <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
-                        type="password"
-                        placeholder="Enter Your Password"
-                        required
-                        name="password"
-                        label="Password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="row mb-4">
-                    <div className="col-md-12">
-                      <input
-                        className="form-control text-center   h-auto p-6 rounded-lg font-size-h6"
-                        type="password"
-                        placeholder="Confirm Your Password"
-                        required
-                        fullWidth
-                        name="confirm password"
-                        label="Confirm Password"
-                        id="confirm password"
-                        value={conPassword}
-                        onChange={(e) => setConPassword(e.target.value)}
                       />
                     </div>
                   </div>
@@ -195,10 +170,10 @@ function Register() {
                   <div className="">
                     <span className="text-muted font-weight-bold font-size-h6">
                       <Link href={"/user/access"}>
-                        <a className="pr-2">Already have an account?</a>
+                        <a className="mr-2">access account</a>
                       </Link>
                       <Link href={"/user/reset"}>
-                        <a>Reset user</a>
+                        <a className="ml-2">reset account</a>
                       </Link>
                     </span>
                   </div>
@@ -210,7 +185,7 @@ function Register() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 /*
 export async function getServerSideProps(context) {
@@ -223,4 +198,4 @@ export async function getServerSideProps(context) {
   }
 }
 */
-export default Register
+export default Register;
