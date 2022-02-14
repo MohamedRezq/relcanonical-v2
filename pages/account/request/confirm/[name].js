@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 const Confirm = () => {
   const router = useRouter();
 
-  const { name } = router?.query;
+  const { name } = router.query;
   return (
     <div className="">
       <Head>

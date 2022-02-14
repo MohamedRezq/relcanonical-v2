@@ -1,15 +1,19 @@
 import nodemailer from "nodemailer"
+import absoluteUrl from "next-absolute-url"
 
 export const sendEmail = (options) => {
-  const transporter = nodemailer.createTransport({
-    service: process.env.EMAIL_SERVICE,
+  let smtpConfig = {
+    host: 'smtp.sendgrid.net',
+    port: 465,
+    secure: true, // use SSL
     auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  })
+        user: 'apikey',
+        pass: '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'
+    }
+  }
+  var transporter = nodemailer.createTransport(smtpConfig);
   const mailOptions = {
-    from: process.env.EMAIL_FROM,
+    from: "morezqdev@gmail.com",
     to: options.to,
     subject: options.subject,
     html: options.text,

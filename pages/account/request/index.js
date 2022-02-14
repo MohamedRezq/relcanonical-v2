@@ -30,9 +30,6 @@ function Register() {
     if (cookies?.user) {
       router.push("/");
     }
-    if (isRegistered) {
-      router.push("/account/request/confirm");
-    }
   }, [router, isRegistered]);
 
   const SubmitHandler = async (e) => {
@@ -64,7 +61,11 @@ function Register() {
         { email, firstName },
         config
       );
-      setIsRegistered(true);
+      const { emailVerify } = await axios.post(
+        `/api/user/verify`,
+        { email, firstName },
+        config
+      );
       router.push(`/account/request/confirm/${firstName}`)
     } catch (error) {
       console.log(error.response);

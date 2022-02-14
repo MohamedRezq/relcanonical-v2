@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs"
 connectDB()
 
 export default async (req, res) => {
-  console.log(req)
+  console.log("req: ", req)
   try {
     if (req.method === "POST") {
       const { email, firstName } = req.body
@@ -25,7 +25,7 @@ export default async (req, res) => {
         name: `${firstName}`, //${lastName}
         avatar: `${firstName.charAt(0)}`,
         type: "inactive",
-        password: "",
+        password: "hhhhhh",
         resetToken: "",
       }).save()
       res.status(200).json({ message: "Sign Up Sucess" })
