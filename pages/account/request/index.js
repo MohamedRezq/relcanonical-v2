@@ -65,6 +65,7 @@ function Register() {
         config
       );
       setIsRegistered(true);
+      router.push("/account/request/confirm")
     } catch (error) {
       console.log(error.response);
     }
