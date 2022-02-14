@@ -8,7 +8,8 @@ import axios from "axios";
 
 export default function SignIn() {
   const router = useRouter();
-
+  const [password, setPassword] = useState("");
+  const [conPassword, setConPassword] = useState("");
   const { token } = router.query;
 
   console.log(token);
@@ -70,7 +71,7 @@ export default function SignIn() {
                   </div>
                   <div className="row mb-4">
                     <div className="col-md-12">
-                    <input
+                      <input
                         className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Enter New Password"
@@ -85,7 +86,7 @@ export default function SignIn() {
                   </div>
                   <div className="row mb-4">
                     <div className="col-md-12">
-                    <input
+                      <input
                         className="form-control text-center form-control-solid h-auto p-6 rounded-lg font-size-h6"
                         type="password"
                         placeholder="Confirm New Password"
