@@ -18,9 +18,6 @@ const Update = () => {
     event.preventDefault();
     const result = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    const conPassword = result.get("conPassword");
-    const password = result.get("password");
-
     const config = {
       headers: {
         "Content-Type": "application/json",
