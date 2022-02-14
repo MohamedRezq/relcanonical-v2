@@ -38,19 +38,12 @@ export default async (req, res) => {
       .json({ message: "Password needs to be at least 6 characters" });
   }
 
-  if (token) {
-    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-  }
-
-  const user = await User.findById(req.user._id);
-
   if (user) {
     user.password = await bcrypt.hash(password, 12);
 
     user.resetToken = undefined;
     await user.save();
 
-    return res.status(200).json({ message: "success in updating user" });
+    return res.status(200).json({ message: "success in updating user's password" });
   }
 };
