@@ -25,8 +25,8 @@ const Onboard = () => {
     }
 
     const { data } = await axios.put(
-      `/api/user/reset/${token}`,
-      { conPassword, password },
+      `/api/user/updatePass`,
+      { name, conPassword, password },
       config
     )
   }
