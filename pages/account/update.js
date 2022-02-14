@@ -13,6 +13,8 @@ const Update = () => {
   console.log(token);
 
   const handleSubmit = async (event) => {
+    const [password, setPassword] = useState("");
+    const [conPassword, setConPassword] = useState("");
     event.preventDefault();
     const result = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
