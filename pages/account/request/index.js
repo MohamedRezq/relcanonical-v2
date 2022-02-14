@@ -17,7 +17,7 @@ function Register() {
   //const [lastName, setLastName] = useState("")
   //const router = useRouter()
   const [isRegistered, setIsRegistered] = useState(false);
-
+  const router = useRouter()
   const { data: session } = useSession();
 
   const cookies = parseCookies;
