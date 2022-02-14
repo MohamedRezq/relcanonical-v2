@@ -8,7 +8,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Brand from "../../../components/main/Brand";
-import emailjs from "@emailjs/browser";
 import { init } from "@emailjs/browser";
 init("user_tGYmCdobbGp4a6cJxsHfG");
 
@@ -37,26 +36,6 @@ function Register() {
       router.push("/account/request/confirm");
     }
   }, [router, isRegistered]);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_z8ce4ip",
-        "template_opjizsj",
-        e.target,
-        "user_tGYmCdobbGp4a6cJxsHfG"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
 
   const SubmitHandler = async (e) => {
     e.preventDefault();
