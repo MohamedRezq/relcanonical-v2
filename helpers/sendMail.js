@@ -8,7 +8,7 @@ export const sendEmail = (options) => {
     secure: true, // use SSL
     auth: {
         user: 'MS_9glDOR@relcanonical.com',
-        pass: 'TuxkqPWjjBdLB0ie'
+        pass: 'U3qUl4FDnb2FMRvZ'
     }
   }
   var transporter = nodemailer.createTransport(smtpConfig);
