@@ -8,8 +8,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Brand from "../../../components/main/Brand";
-import { init } from "@emailjs/browser";
-init("user_tGYmCdobbGp4a6cJxsHfG");
 
 function Register() {
   const [email, setEmail] = useState("");
